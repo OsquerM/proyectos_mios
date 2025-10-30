@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="estilos/estilos_index.css">
+  <title>Team — Heretics demo</title>
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">
+      <img src="imagen/logohereticss.png" alt="logo">
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Tienda</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Sobre</a></li>
+      </ul>
+    </nav>
+    <div class="boton">
+      <a class="btn" href="#">Comprar</a>
+    </div>
+  </header>
+  <main>
+    <section class="hero" aria-label="hero">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <h1>Somos Team Heretics — Esports &amp; Merch</h1>
+          <p>Diseños exclusivos, equipo competitivo y contenido. Tienda oficial y novedades del club.</p>
+          <div class="hero-cta">
+            <a class="btn" href="#">Explorar tienda</a>
+            <a class="explorar" href="#">Ver equipos</a>
+          </div>
+        </div>
+
+    <aside class="card">
+        <div class="product-thumb">
+            <a href="detallecamisetapink.html">
+                <img src="imagen/champions-jersey-special-edition.jpg" alt="producto">
+            </a>
+        </div>
+        <h4>Champions Jersey Special Edition</h4>
+        <p class="description">Calidad premium, tejido cómodo y estampado resistente.</p>
+        <div class="card-footer">
+            <div class="price">65.00€</div>
+            <a class="btn" href="#">Añadir</a>
+        </div>
+    </aside>
+
+
+      <!-- background decorative shapes -->
+      <svg style="position:absolute;right:-120px;bottom:-80px;opacity:.08;z-index:1" width="520" height="520" viewBox="0 0 520 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="260" cy="260" r="260" fill="#ff3b3b"/>
+      </svg>
+    </section>
+
+    <section class="strip" aria-label="colecciones">
+      <div style="max-width:1200px;margin:0 auto">
+        <h3 style="margin-bottom:14px">Colecciones destacadas</h3>
+        <div class="strip-inner">
+          <div class="tile"><h4>Esports</h4><p style="opacity:.8;font-size:13px">Equipos y merchandising oficial</p></div>
+          <div class="tile"><h4>Legacy</h4><p style="opacity:.8;font-size:13px">Diseños icónicos</p></div>
+          <div class="tile"><h4>Collaborations</h4><p style="opacity:.8;font-size:13px">Colabs con marcas</p></div>
+          <div class="tile"><h4>Outlet</h4><p style="opacity:.8;font-size:13px">Ofertas</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="products" id="productos">
+      <h3 style="margin-bottom:18px">Productos populares</h3>
+      <div class="grid">
+        <article class="product">
+        <a href="detalleracing.html">
+          <div class="img"><img src="imagen/racing-jacket-9-aniversario.jpg" alt=""></div>
+        </a>
+          <h3>Racing Jacket -9º Aniversario</h3>
+          <div class="price">100.00€</div>
+        </article>
+        <article class="product">
+          <div class="img"><img src="imagen/mx-jersey-9-aniversario.jpg" alt=""></div>
+          <h3>MX Jersey</h3>
+          <div class="price">50.00€</div>
+        </article>
+        <article class="product">
+          <div class="img"><img src="imagen/official-pro-jersey-lec-2025.jpg" alt=""></div>
+          <h3>Official pro jersey lec 2025</h3>
+          <div class="price">33.00€</div>
+        </article>
+        <article class="product">
+          <div class="img"><img src="imagen/official-pro-jersey-valorant-2025.jpg" alt=""></div>
+          <h3>Official pro jersey 2025</h3>
+          <div class="price">33.00€</div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <strong>Team Heretics </strong>
+      </div>
+      <div style="text-align:right;opacity:.9">
+        <div>Contacto: ...@...</div>
+        <div style="margin-top:8px">© <span id="year"></span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // small niceties
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

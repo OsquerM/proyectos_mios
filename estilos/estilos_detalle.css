@@ -1,0 +1,295 @@
+/* ===================== RESET ===================== */
+/* Quitar márgenes y padding por defecto, y usar box-sizing border-box */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Asegurar que html y body ocupen toda la altura */
+html, body {
+    height: 100%;
+}
+
+/* Estilos base del body: fuente, color, fondo y suavizado de texto */
+body {
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: #0b0b0c;
+    color: #e6e6e8;
+    line-height: 1.4;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+main, .detalle-producto {
+    padding-top: 80px; /* igual o un poco más que la altura del header */
+}
+.detalle-grid {
+    display: flex;
+    gap: 40px; /* espacio entre galería y panel derecho */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 6%;
+}
+
+/* Galería izquierda */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    flex: 2; /* ocupa más espacio que el panel derecho */
+}
+.img-item {
+    width: 100%;
+    height: 250px; /* o la altura que quieras */
+    overflow: hidden;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-item img {
+    width: 100%;          /* llena el ancho del contenedor */
+    height: 100%;         /* llena la altura */
+    object-fit: contain;   /* mantiene proporciones sin recortar */
+    display: block;
+}
+
+/* Panel derecho */
+.info-producto {
+    flex: 1; /* ocupa menos espacio */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Tallas */
+.tallas {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.talla {
+    padding: 8px 14px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    background: transparent;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.talla:hover {
+    background: #ff3b3b;
+    border-color: #ff3b3b;
+}
+
+/* Precio y botón */
+.precio-carrito {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.precio {
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.añadir-carrito {
+    background: #ff3b3b;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.añadir-carrito:hover {
+    background: #e63737;
+}
+
+
+.img-item {
+    position: relative;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1; /* mantiene cuadrado */
+    min-height: 300px;   /* altura mínima más grande */
+}
+
+.img-item img {
+    width: 120%;          /* un poco más grande que el contenedor */
+    height: auto;         /* mantiene proporción */
+    max-height: 100%;     /* que no se salga verticalmente */
+    object-fit: contain;  /* mantiene proporción completa */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.img-item:hover img {
+    transform: scale(1.08); /* zoom más notorio al pasar el mouse */
+}
+
+.compra {
+    text-align: right;
+    margin-top: 24px;
+}
+
+.tallas {
+    text-align: right;
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.talla {
+    padding: 8px 14px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    background: transparent;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.talla:hover {
+    background: #ff3b3b;
+    border-color: #ff3b3b;
+    color: #fff;
+}
+
+.precio-carrito {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.precio {
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.añadir-carrito {
+    background: #ff3b3b;
+    color: #fff;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.añadir-carrito:hover {
+    background: #e63737;
+}
+
+/* ===================== HEADER ===================== */
+/* Barra fija superior */
+.site-header {
+    position: fixed; /* Siempre visible */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 60; /* Por encima de otros elementos */
+    display: flex; /* Layout horizontal */
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 28px;
+    background: linear-gradient(180deg, rgba(5,6,8,0.6), rgba(5,6,8,0.2));
+    backdrop-filter: blur(6px); /* Efecto desenfoque */
+}
+
+/* Logo */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo img {
+    height: 36px; /* Altura del logo */
+}
+
+/* Menú de navegación */
+nav ul {
+    display: flex;
+    gap: 18px;
+    list-style: none; /* Quitar viñetas */
+}
+
+nav a {
+    color: inherit;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    opacity: .95; /* Ligera transparencia */
+}
+
+/* Botón principal */
+.btn {
+    background: #ff3b3b;
+    color: white;
+    padding: 8px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 700;
+}
+/* ===================== FOOTER ===================== */
+footer {
+    padding: 38px 6%;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.03);
+    opacity: .95;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-footer .price {
+    font-weight: 800;
+}
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 900px) {
+    .hero-grid {
+        grid-template-columns: 1fr; /* Solo columna en pantallas medianas */
+    }
+
+    .hero {
+        padding-top: 100px;
+    }
+
+    nav ul {
+        display: none; /* Ocultar menú */
+    }
+}
+
+@media (max-width: 520px) {
+    .hero-left h1 {
+        font-size: 32px; /* Ajuste de fuente para móvil */
+    }
+
+    .product-thumb {
+        height: 160px; /* Imagen más pequeña */
+    }
+}
