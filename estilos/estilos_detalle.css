@@ -5,7 +5,20 @@
     margin: 0;
     padding: 0;
 }
+.header-iconos {
+    display: flex;
+    align-items: center;  /* centra verticalmente los iconos */
+    gap: 15px;            /* espacio entre iconos */
+    margin-left: auto;     /* empuja los iconos hacia la derecha */
+}
 
+/* iconos svg */
+.header-iconos svg {
+    width: 26px;
+    height: 26px;
+    color: white; 
+    cursor: pointer; 
+}
 /* Asegurar que html y body ocupen toda la altura */
 html, body {
     height: 100%;
@@ -235,7 +248,7 @@ nav a {
     opacity: .95; /* Ligera transparencia */
 }
 
-/* Botón principal */
+/* Botón Añadir carrito*/
 .btn {
     background: #ff3b3b;
     color: white;
@@ -291,4 +304,30 @@ footer {
     .product-thumb {
         height: 160px; /* Imagen más pequeña */
     }
+}
+.carrito{
+  position: relative;
+}
+
+.contador-carrito{
+  position:absolute;
+  top:-4px;
+  right:-4px;
+  background:red;
+  color:white;
+  font-size:12px;
+  padding:2px 6px;
+  border-radius:50%;
+}
+/* estilos para el icono de usuario */
+.usuario svg {
+    width: 26px;       /* ancho del icono */
+    height: 26px;      /* alto del icono */
+    color: white;       /* color del icono, ajusta según tu diseño */
+    display: block;    /* evita problemas de alineación */
+}
+.usuario, .carrito {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 15px; /* separa los iconos */
 }
