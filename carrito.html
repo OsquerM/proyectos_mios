@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="estilos/estilos_carrito.css">
+  <title>Carrito — Team Heretics</title>
+</head>
+<body>
+  <header class="site-header">
+    <div class="logo">
+      <a href="index.html"><img src="imagen/logohereticss.png" alt="logo"></a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Tienda</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Sobre</a></li>
+      </ul>
+    </nav>
+    <div class="usuario">
+      <a href="login.html">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+        </svg>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="carrito-productos">
+      <h1>Tu carrito</h1>
+      <div id="contenedor-carrito">
+        <!-- Aquí carrito.js añadirá los productos -->
+      </div>
+      <div class="carrito-total">
+        <h2>Total: <span id="total-carrito">0</span> €</h2>
+        <button id="vaciar-carrito" class="btn">Vaciar carrito</button>
+        <button id="comprar-carrito" class="btn">Comprar</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <strong>Team Heretics </strong>
+      </div>
+      <div style="text-align:right;opacity:.9">
+        <div>Contacto: ...@...</div>
+        <div style="margin-top:8px">© <span id="year"></span></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+  <script src="js/carrito.js"></script>
+</body>
+</html>
