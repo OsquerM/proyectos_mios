@@ -1,91 +1,8 @@
-1. ENTIDADES Y ATRIBUTOS
-🟦 Equipo
+🟩 Usuario
 
-id_equipo (PK)
+Representa al cliente que hace pedidos.
 
-nombre
-
-juego (Valorant, LoL, Fortnite, etc.)
-
-entrenador
-
-fecha_creacion
-
-🟩 Jugador
-
-id_jugador (PK)
-
-nombre_real
-
-nickname
-
-rol
-
-pais
-
-fecha_nacimiento
-
-foto_url
-
-id_equipo (FK)
-
-🟧 Noticia
-
-id_noticia (PK)
-
-titulo
-
-contenido
-
-fecha_publicacion
-
-imagen_url
-
-autor
-
-🟨 Torneo
-
-id_torneo (PK)
-
-nombre
-
-juego
-
-organizador
-
-fecha_inicio
-
-fecha_fin
-
-🟫 Partido
-
-id_partido (PK)
-
-id_torneo (FK)
-
-fecha
-
-rival
-
-resultado
-
-mejor_de (BO3, BO5, etc.)  el equipo que gana 2 mapas obtiene la victoria
-
-🟦 Merchandising 
-
-id_producto (PK)
-
-nombre
-
-descripcion
-
-precio
-
-imagen_url
-
-categoria (camisetas, accesorios, etc.)
-
-🟪 Usuario 
+Atributos:
 
 id_usuario (PK)
 
@@ -95,54 +12,132 @@ email
 
 contraseña
 
-rol (admin/usuario)
+rol (admin / usuario)
 
-                ┌───────────────┐
-                │    EQUIPO     │
-                ├───────────────┤
-                │ id_equipo (PK)│
-                │ nombre        │
-                │ juego         │
-                │ entrenador    │
-                └───────┬───────┘
-                        │ 1
-                        │
-                        │ N
-                ┌───────────────┐
-                │   JUGADOR     │
-                ├───────────────┤
-                │ id_jugador(PK)│
-                │ nickname      │
-                │ rol           │
-                │ pais          │
-                │ id_equipo(FK) │
-                └───────────────┘
+🟦 Producto
 
+Representa cada artículo de merchandising.
 
-┌───────────────┐        1        ┌───────────────┐
-│    TORNEO     │─────────────────│    PARTIDO    │
-├───────────────┤                 ├───────────────┤
-│ id_torneo(PK) │                 │ id_partido(PK)│
-│ nombre        │                 │ id_torneo(FK) │
-│ organizador   │                 │ rival         │
-└───────────────┘                 └───────────────┘
+Atributos:
 
+id_producto (PK)
 
-┌───────────────┐        1        ┌───────────────┐
-│    USUARIO    │─────────────────│    NOTICIA    │
-├───────────────┤                 ├───────────────┤
-│ id_usuario PK │                 │ id_noticia PK │
-│ nombre        │                 │ titulo        │
-│ email         │                 │ contenido     │
-│ rol           │                 │ autor (FK)    │
-└───────────────┘                 └───────────────┘
+nombre
 
+descripción
 
+precio
+
+imagen_url
+
+categoría (camiseta, sudadera, accesorio, etc.)
+
+🟨 Carrito
+
+El carrito pertenece exclusivamente a un usuario.
+
+Atributos:
+
+id_carrito (PK)
+
+id_usuario (FK)
+
+fecha_creacion
+
+estado (activo / convertido_en_pedido)
+
+🟫 CarritoItem
+
+Relación N:M entre carrito y productos.
+
+Atributos:
+
+id_item (PK)
+
+id_carrito (FK)
+
+id_producto (FK)
+
+cantidad
+
+🟧 Pedido
+
+Cuando un carrito se confirma, se convierte en pedido.
+
+Atributos:
+
+id_pedido (PK)
+
+id_usuario (FK)
+
+fecha_pedido
+
+total
+
+estado (pendiente, pagado, enviado, completado)
+
+🟪 PedidoItem
+
+Fotografía exacta del carrito en el momento de comprar.
+
+Atributos:
+
+id_pedido_item (PK)
+
+id_pedido (FK)
+
+id_producto (FK)
+
+cantidad
+
+precio_unitario (congelado)
+
+┌───────────────┐
+│    USUARIO    │
+├───────────────┤
+│ id_usuario PK │
+│ nombre        │
+│ email         │
+│ contraseña    │
+│ rol           │
+└───────┬───────┘
+        │ 1
+        │
+        │ N
+┌───────────────┐
+│    CARRITO    │
+├───────────────┤
+│ id_carrito PK │
+│ id_usuario FK │
+│ fecha_creacion│
+│ estado        │
+└───────┬───────┘
+        │ 1
+        │
+        │ N
 ┌────────────────┐
-│ MERCHANDISING  │
+│  CARRITO_ITEM  │
 ├────────────────┤
-│ id_producto PK │
-│ nombre         │
-│ precio         │
-│ imagen_url     │
-└────────────────┘
+│ id_item PK     │
+│ id_carrito FK  │
+│ id_producto FK │
+│ cantidad       │
+└───────┬────────┘
+        │ N
+        │
+        │ 1
+┌───────────────┐
+│   PRODUCTO    │
+├───────────────┤
+│ id_producto PK│
+│ nombre        │
+│ precio        │
+│ imagen_url    │
+│ categoría     │
+└───────────────┘
+
+
+USUARIO 1 ── N PEDIDO
+PEDIDO 1 ── N PEDIDO_ITEM
+PEDIDO_ITEM N ── 1 PRODUCTO
+

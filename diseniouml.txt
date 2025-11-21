@@ -1,0 +1,41 @@
+Clase: Producto
+---------------------
++ id: number
++ nombre: string
++ descripcion: string
++ precio: number
++ imagenUrl: string
++ categoria: string
+---------------------
++ constructor(id, nombre, descripcion, precio, imagenUrl, categoria)
++ renderizarHTML(): string
+
+Clase: Usuario
+---------------------
++ id: number
++ nombre: string
++ email: string
++ rol: string ("admin" | "usuario")
+---------------------
++ constructor(id, nombre, email, rol)
+
+Clase: Carrito
+---------------------
+- productos: Producto[]  (privado)
+---------------------
++ constructor()
++ agregarProducto(producto: Producto): void
++ eliminarProducto(index: number): void
++ calcularTotal(): number
++ renderizarHTML(): string
+
+Clase: Pedido
+---------------------
++ id: number
++ usuario: Usuario
++ carrito: Carrito
++ fecha: Date
+---------------------
++ constructor(id, usuario, carrito, fecha)
++ calcularTotal(): number
++ renderizarResumen(): string
