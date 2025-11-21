@@ -15,9 +15,12 @@ Clase: Usuario
 + id: number
 + nombre: string
 + email: string
-+ rol: string ("admin" | "usuario")
++ rol: string   // "admin" | "usuario"
 ---------------------
 + constructor(id, nombre, email, rol)
++ esAdmin(): boolean
++ to_dict(): dict
+
 
 Clase: Carrito
 ---------------------
@@ -32,10 +35,21 @@ Clase: Carrito
 Clase: Pedido
 ---------------------
 + id: number
-+ usuario: Usuario
++ usuario: Usuario 
 + carrito: Carrito
 + fecha: Date
 ---------------------
 + constructor(id, usuario, carrito, fecha)
 + calcularTotal(): number
 + renderizarResumen(): string
+
+Clase: GestorProductos
+---------------------
++ productos: Producto[]         
+---------------------
++ constructor()
++ crearProducto(datos: ProductoCreate): Producto
++ actualizarProducto(id: number, datos: ProductoUpdate): Producto
++ eliminarProducto(id: number): void
++ obtenerTodos(): Producto[]
++ obtenerPorId(id: number): Producto | null
