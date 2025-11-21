@@ -1,0 +1,148 @@
+1. ENTIDADES Y ATRIBUTOS
+🟦 Equipo
+
+id_equipo (PK)
+
+nombre
+
+juego (Valorant, LoL, Fortnite, etc.)
+
+entrenador
+
+fecha_creacion
+
+🟩 Jugador
+
+id_jugador (PK)
+
+nombre_real
+
+nickname
+
+rol
+
+pais
+
+fecha_nacimiento
+
+foto_url
+
+id_equipo (FK)
+
+🟧 Noticia
+
+id_noticia (PK)
+
+titulo
+
+contenido
+
+fecha_publicacion
+
+imagen_url
+
+autor
+
+🟨 Torneo
+
+id_torneo (PK)
+
+nombre
+
+juego
+
+organizador
+
+fecha_inicio
+
+fecha_fin
+
+🟫 Partido
+
+id_partido (PK)
+
+id_torneo (FK)
+
+fecha
+
+rival
+
+resultado
+
+mejor_de (BO3, BO5, etc.)  el equipo que gana 2 mapas obtiene la victoria
+
+🟦 Merchandising 
+
+id_producto (PK)
+
+nombre
+
+descripcion
+
+precio
+
+imagen_url
+
+categoria (camisetas, accesorios, etc.)
+
+🟪 Usuario 
+
+id_usuario (PK)
+
+nombre
+
+email
+
+contraseña
+
+rol (admin/usuario)
+
+                ┌───────────────┐
+                │    EQUIPO     │
+                ├───────────────┤
+                │ id_equipo (PK)│
+                │ nombre        │
+                │ juego         │
+                │ entrenador    │
+                └───────┬───────┘
+                        │ 1
+                        │
+                        │ N
+                ┌───────────────┐
+                │   JUGADOR     │
+                ├───────────────┤
+                │ id_jugador(PK)│
+                │ nickname      │
+                │ rol           │
+                │ pais          │
+                │ id_equipo(FK) │
+                └───────────────┘
+
+
+┌───────────────┐        1        ┌───────────────┐
+│    TORNEO     │─────────────────│    PARTIDO    │
+├───────────────┤                 ├───────────────┤
+│ id_torneo(PK) │                 │ id_partido(PK)│
+│ nombre        │                 │ id_torneo(FK) │
+│ organizador   │                 │ rival         │
+└───────────────┘                 └───────────────┘
+
+
+┌───────────────┐        1        ┌───────────────┐
+│    USUARIO    │─────────────────│    NOTICIA    │
+├───────────────┤                 ├───────────────┤
+│ id_usuario PK │                 │ id_noticia PK │
+│ nombre        │                 │ titulo        │
+│ email         │                 │ contenido     │
+│ rol           │                 │ autor (FK)    │
+└───────────────┘                 └───────────────┘
+
+
+┌────────────────┐
+│ MERCHANDISING  │
+├────────────────┤
+│ id_producto PK │
+│ nombre         │
+│ precio         │
+│ imagen_url     │
+└────────────────┘
